@@ -17,7 +17,16 @@ export function useDarkMode() {
     }
   }, [isDarkMode]);
 
-  const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
+  const toggleDarkMode = () => {
+    if (!document.startViewTransition) {
+      setIsDarkMode(!isDarkMode);
+      return;
+    }
+
+    document.startViewTransition(() => {
+      setIsDarkMode((prev) => !prev);
+    });
+  };
 
   return { isDarkMode, toggleDarkMode };
 }

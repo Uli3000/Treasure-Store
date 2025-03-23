@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { Routes, Route } from "react-router-dom"
 import Sidebar from "./components/Sidebar"
 import Header from "./components/Header"
 import type { Resource, Category } from "./types"
@@ -14,14 +13,22 @@ function App() {
   const [selectedSubcategory, setSelectedSubcategory] = useState<string | null>(null)
   const [searchTerm, setSearchTerm] = useState("")
   const [activeTab, setActiveTab] = useState<"all" | "favorites">("all")
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const loadData = async () => {
-      const categoriesFromDB = await fetchCategories();
-      const resourcesFromDB = await fetchResources();
+      setLoading(true);
+      try {
+        const categoriesFromDB = await fetchCategories();
+        const resourcesFromDB = await fetchResources();
 
-      setCategories(categoriesFromDB);
-      setResources(resourcesFromDB);
+        setCategories(categoriesFromDB);
+        setResources(resourcesFromDB);
+      } catch (error) {
+        console.error("Error loading data:", error);
+      } finally {
+        setLoading(false);
+      }
     };
 
     loadData();
@@ -110,14 +117,16 @@ function App() {
               Favoritos
             </button>
           </div>
-          <main>
-            <Routes>
-              <Route
-                path="/"
-                element={<ResourceGrid resources={filteredResources} toggleFavorite={toggleFavorite} />}
-              />
-            </Routes>
-          </main>
+          {loading ? (
+            <div className="flex justify-center items-center h-64 flex-col gap-3">
+              <span className="text-teal-600 dark:text-teal-400 text-lg font-medium">Cargando datos... </span>
+              <div className="loader"/>
+            </div>
+          ) : (
+            <main>
+              <ResourceGrid resources={filteredResources} toggleFavorite={toggleFavorite} />
+            </main>
+          )}
         </div>
       </div>
     </div>
