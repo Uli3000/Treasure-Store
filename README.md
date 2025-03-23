@@ -2,8 +2,8 @@
 
 **Treasure-Store** es una aplicación web que permite ver recursos utiles en su mayoria web o relacionados a la progrmacion que vienen de una base de datos personal de forma organizada y permitiendo poder  acceder a enlaces y recursos multimedia de las diferentes plataformas de donde fueron sacados.
 
-## 🔗 Ver Demo  
-[Acceder a la demo](https://treasure-store.netlify.app)
+## 🔗 Ver Web  
+[Acceder a la web](https://treasure-store.netlify.app)
 
 ## ✨ Características  
 
