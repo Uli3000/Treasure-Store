@@ -1,50 +1,25 @@
-# React + TypeScript + Vite
+# 🌟 Treasure-Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Treasure-Store** es una aplicación web que permite ver recursos utiles en su mayoria web o relacionados a la progrmacion que vienen de una base de datos personal de forma organizada y permitiendo poder  acceder a enlaces y recursos multimedia de las diferentes plataformas de donde fueron sacados.
 
-Currently, two official plugins are available:
+## 🔗 Ver Demo  
+[Acceder a la demo](https://treasure-store.netlify.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Características  
 
-## Expanding the ESLint configuration
+- 🔍 **Búsqueda rápida** - Encuentra recursos fácilmente mediante un buscador.  
+- 📂 **Organización eficiente** - Clasificación del contenido con categorías y subcategorias.  
+- 🎨 **Modo oscuro y claro** - Transiciones fluidas entre cambio de tema.  
+- ⭐ **Sección de favoritos** - Guarda como favoritos tus recursos favoritos.  
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🛠️ Tecnologías utilizadas  
 
-- Configure the top-level `parserOptions` property like this:
+### Frontend  
+- 🖥️ **React** - Biblioteca para construir interfaces de usuario interactivas.  
+- 💙 **Tailwind CSS** - Framework de estilos para un diseño moderno y responsivo.  
+- 📜 **TypeScript** - Superset de JavaScript con tipado estático.  
+- ⚡ **Vite** - Herramienta de desarrollo rápida y ligera.  
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Backend & Base de datos  
+- 🛢️ **Supabase** - Plataforma backend como servicio basada en PostgreSQL.  
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
